@@ -1,0 +1,25 @@
+{
+  "name": "monorepo",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend",
+    "common/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "start": "node backend/dist/main",
+    "lint": "eslint \"**/*.{ts,js}\" --fix --quiet",
+    "format": "prettier --write \"./**/*.{ts,js}\""
+  },
+  "packageManager": "yarn@3.4.1",
+  "devDependencies": {
+    "eslint": "^8.54.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "prettier": "^3.1.0"
+  },
+  "dependencies": {
+    "turbo": "^1.10.16"
+  }
+}

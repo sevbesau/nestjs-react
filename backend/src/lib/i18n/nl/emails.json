@@ -1,0 +1,29 @@
+{
+  "POLICIES": "Beleid",
+  "HELP_CENTER": "Help center",
+  "ALL_RIGHTS_RESERVED": "alle rechten voorbehouden",
+  "otp": {
+    "SUBJECT": "Log in met je eenmalig wachtwoord!",
+    "PREVIEW": "Je eenmalig wachtwoord",
+    "HEADING": "Log in met je eenmalig wachtwoord",
+    "BODY": "Je eenmalig wachtwoord staat hieronder - vul het in op de website om in te loggen.",
+    "DID_NOT_REQUEST": "Als je niet probeerde in te loggen, hoef je niets te doen en kan je deze mail veilig negeren."
+  },
+  "contactRequestConfirmation": {
+    "SUBJECT": "We hebben je bericht ontvangen!",
+    "PREVIEW": "We verwerken je bericht zo snel mogelijk!",
+    "HEADING": "We hebben je bericht ontvangen!",
+    "GREETING": "Hallo",
+    "BODY": "Bedankt om contact op te nemen met ons. We verwerken je bericht zo snel mogelijk.",
+    "YOUR_MESSAGE": "Dit is wat je naar ons stuurde:",
+    "DID_NOT_REQUEST": "Als je dit niet zelf gedaan hebt, hoef je niets te doen en kan je deze mail veilig negeren."
+  },
+  "contactRequestNotification": {
+    "SUBJECT": "Niew contactverzoek",
+    "PREVIEW": "We hebben een nieuw contactverzoek gekregen",
+    "HEADING": "We hebben een bericht ontvangen.",
+    "BODY": "heeft op de website een bericht achtergelaten.",
+    "THEIR_MESSAGE": "Dit is wat ze naar ons stuurde:",
+    "REPLY": "Klik hier om het bericht te beantwoorden."
+  }
+}

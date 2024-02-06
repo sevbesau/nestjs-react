@@ -1,0 +1,31 @@
+{
+  "name": "@common/schemas",
+  "version": "0.0.1",
+  "description": "Shareable contract between front and backend",
+  "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "require": "./dist/index.js",
+      "import": "./src/index.ts"
+    },
+    "./src/": {
+      "types": "./src/",
+      "require": "./dist/",
+      "import": "./src/"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch --preserveWatchOutput"
+  },
+  "private": true,
+  "dependencies": {
+    "@ts-rest/core": "^3.30.5",
+    "mongoose": "^8.0.2",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+}

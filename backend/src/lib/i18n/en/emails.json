@@ -1,0 +1,29 @@
+{
+  "POLICIES": "Policy",
+  "HELP_CENTER": "Help center",
+  "ALL_RIGHTS_RESERVED": "all rights reserved",
+  "otp": {
+    "SUBJECT": "Log in with your one time password!",
+    "PREVIEW": "Your one time password",
+    "HEADING": "Log in with your one time password!",
+    "BODY": "You can find your one time password below - use it on the website to log in.",
+    "DID_NOT_REQUEST": "If you did not try to log in, you dont need to do anything - You can safely ignore this email."
+  },
+  "contactRequestConfirmation": {
+    "SUBJECT": "We have recieved your message!",
+    "PREVIEW": "We will reply as soon as possible!",
+    "HEADING": "We have recieved your message!",
+    "GREETING": "Hello",
+    "BODY": "Thank you for contacting us. We will process your message as fast as possible.",
+    "YOUR_MESSAGE": "This is what you sent us:",
+    "DID_NOT_REQUEST": "If you did not do this yourself, you can safely ignore this email and its replies."
+  },
+  "contactRequestNotification": {
+    "SUBJECT": "Niew contactverzoek",
+    "PREVIEW": "We hebben een nieuw contactverzoek gekregen",
+    "HEADING": "We hebben een bericht ontvangen.",
+    "BODY": "heeft op de website een bericht achtergelaten.",
+    "THEIR_MESSAGE": "Dit is wat ze naar ons stuurde:",
+    "REPLY": "Klik hier om het bericht te beantwoorden."
+  }
+}
