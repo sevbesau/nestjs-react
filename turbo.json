@@ -2,6 +2,10 @@
   "$schema": "https://turborepo.org/schema.json",
   "pipeline": {
     "lint": {},
+    "test": {},
+    "test:watch": {
+      "cache": false
+    },
     "dev": {
       "cache": false
     },

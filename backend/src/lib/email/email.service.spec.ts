@@ -1,3 +1,4 @@
+import { createMockConfigService } from '@lib/test/config';
 import { ConfigService } from '@nestjs/config';
 import { Test, TestingModule } from '@nestjs/testing';
 import sendgridService from '@sendgrid/mail';
@@ -10,7 +11,11 @@ import testTemplate from './templates/test';
 
 describe('EmailService', () => {
   let emailService: EmailService;
-  const mockConfigService = mock(ConfigService);
+  const mockConfigService = createMockConfigService({
+    SENDGRID_KEY: 'key',
+    MAILS_FROM_NAME: 'test',
+    MAILS_FROM_EMAIL: 'test@tester.com',
+  });
   const mockI18N = mock(I18nService);
 
   beforeEach(async () => {

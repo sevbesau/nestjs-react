@@ -9,7 +9,6 @@ import { Injectable } from '@nestjs/common';
 import { Request, Response } from 'express';
 
 import { UsersService } from '../users/users.service';
-import { SignInStrategy } from './auth.controller';
 import {
   DuplicateEmailException,
   ExpiredOtpException,
@@ -32,25 +31,16 @@ export class AuthService {
     private readonly tokensService: TokensService,
   ) {}
 
-  async signIn(strategy: SignInStrategy, { email }: SignInRequestDto) {
+  async signIn({ email }: SignInRequestDto) {
     const user = await this.usersService.findByEmail(email);
 
-    switch (strategy) {
-      case SignInStrategy.OTP:
-        const otp = await this.generateOtpAndSetOnUser(user._id);
-        await this.emailService.sendTemplateMail(
-          otpTemplate,
-          { otp: otp.password },
-          user.email,
-        );
-        return { userId: user._id };
-      case SignInStrategy.PASSWORD:
-        // check if body has password
-        // check if user has password
-        // check if password matches
-        // return session
-        break;
-    }
+    const otp = await this.generateOtpAndSetOnUser(user._id);
+    await this.emailService.sendTemplateMail(
+      otpTemplate,
+      { otp: otp.password },
+      user.email,
+    );
+    return { userId: user._id };
   }
 
   async validateOtp(

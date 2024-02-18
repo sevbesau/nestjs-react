@@ -10,6 +10,8 @@
     "dev": "turbo run dev",
     "build": "turbo run build",
     "lint": "turbo run lint",
+    "test": "turbo run test",
+    "test:watch": "turbo run test:watch",
     "start": "node backend/dist/main",
     "format": "prettier --write \"./**/*.{ts,js}\""
   },

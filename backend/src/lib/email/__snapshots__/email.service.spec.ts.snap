@@ -19,8 +19,8 @@ exports[`EmailService sendEmail should send an email using the sendgrid api 1`] 
 [
   {
     "from": {
-      "email": "contact@team.com",
-      "name": "Eacend support",
+      "email": "test@tester.com",
+      "name": "test",
     },
     "html": "html",
     "subject": "subject",
