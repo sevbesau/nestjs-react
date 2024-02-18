@@ -12,7 +12,7 @@ import { SanitizedUserDto } from './dto/user.sanitized.dto';
 import { UpdateUserDto } from './dto/user.update.dto';
 import { UsersService } from './users.service';
 
-@Controller(UsersController.BasePath)
+@Controller()
 @ApiBearerAuth()
 @ApiTags(UsersController.BasePath)
 export class UsersController {

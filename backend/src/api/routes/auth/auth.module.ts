@@ -1,9 +1,9 @@
+import { CaptchaModule } from '@lib/captcha/captcha.module';
 import { EmailModule } from '@lib/email/email.module';
 import { EncryptionModule } from '@lib/encryption/encryption.module';
 import { TokensModule } from '@lib/tokens/tokens.module';
 import { Module } from '@nestjs/common';
 
-import { CaptchaModule } from '../../lib/captcha/captcha.module';
 import { UsersModule } from '../users/users.module';
 import { AuthController } from './auth.controller';
 import { AuthGuard } from './auth.guard';

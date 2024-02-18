@@ -10,11 +10,8 @@ import {
   Controller,
   Delete,
   Get,
-  Header,
   Headers,
-  Param,
   Post,
-  Query,
   Req,
   Res,
 } from '@nestjs/common';
@@ -40,7 +37,7 @@ export enum SignInStrategy {
   PASSWORD = 'PASSWORD',
 }
 
-@Controller('auth')
+@Controller()
 @ApiTags('auth')
 export class AuthController {
   constructor(private authService: AuthService) {}

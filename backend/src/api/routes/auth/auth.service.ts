@@ -1,4 +1,5 @@
 import { TOtp } from '@common/schemas';
+import { CaptchaService } from '@lib/captcha/captcha.service';
 import { Session } from '@lib/common/session';
 import { EmailService } from '@lib/email/email.service';
 import otpTemplate from '@lib/email/templates/otp';
@@ -7,7 +8,6 @@ import { TokensService } from '@lib/tokens/tokens.service';
 import { Injectable } from '@nestjs/common';
 import { Request, Response } from 'express';
 
-import { CaptchaService } from '../../lib/captcha/captcha.service';
 import { UsersService } from '../users/users.service';
 import { SignInStrategy } from './auth.controller';
 import {
