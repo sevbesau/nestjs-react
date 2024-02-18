@@ -1,14 +1,15 @@
 import {
-  Route,
   createBrowserRouter,
   createRoutesFromElements,
+  Route,
 } from 'react-router-dom';
-import Layout from './routes/Layout';
-import ErrorPage from './Error';
-import Home from './routes/Home';
-import About from './routes/About';
 
-export default createBrowserRouter(
+import ErrorPage from './Error';
+import About from './routes/About';
+import Home from './routes/Home';
+import Layout from './routes/Layout';
+
+const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
       <Route path="/" element={<Home />}></Route>
@@ -16,3 +17,5 @@ export default createBrowserRouter(
     </Route>,
   ),
 );
+
+export default router;

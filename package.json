@@ -9,8 +9,8 @@
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
+    "lint": "turbo run lint",
     "start": "node backend/dist/main",
-    "lint": "eslint \"**/*.{ts,js}\" --fix --quiet",
     "format": "prettier --write \"./**/*.{ts,js}\""
   },
   "packageManager": "yarn@3.4.1",
