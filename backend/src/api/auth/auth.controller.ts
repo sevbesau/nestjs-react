@@ -10,11 +10,8 @@ import {
   Controller,
   Delete,
   Get,
-  Header,
   Headers,
-  Param,
   Post,
-  Query,
   Req,
   Res,
 } from '@nestjs/common';
