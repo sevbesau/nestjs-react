@@ -13,6 +13,8 @@
     "@common/schemas": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.1",
+    "react-router-typesafe": "^1.4.4",
     "vite-plugin-commonjs": "^0.10.1",
     "vite-plugin-require": "^1.1.11"
   },
