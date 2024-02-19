@@ -37,8 +37,8 @@ export enum SignInStrategy {
   PASSWORD = 'PASSWORD',
 }
 
-@Controller('auth')
 @ApiTags('auth')
+@Controller()
 export class AuthController {
   constructor(private authService: AuthService) {}
 

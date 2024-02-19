@@ -6,8 +6,8 @@ import { Test } from '@nestjs/testing';
 import { Request, Response } from 'express';
 import { instance, mock, objectContaining, verify, when } from 'ts-mockito';
 
-import { UserNotFoundException } from '@/api/users/user.exceptions';
-import { UsersService } from '@/api/users/users.service';
+import { UserNotFoundException } from '@/api/routes/users/user.exceptions';
+import { UsersService } from '@/api/routes/users/users.service';
 
 import { TokensService } from './tokens.service';
 

@@ -5,7 +5,7 @@ import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import { Request, Response } from 'express';
 
-import { UsersService } from '@/api/users/users.service';
+import { UsersService } from '@/api/routes/users/users.service';
 
 @Injectable()
 export class TokensService {
