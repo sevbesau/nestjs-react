@@ -1,0 +1,52 @@
+name: Integrate
+
+# action ideas: slack notification for new prs, automatic backups of database, etc..
+
+on:
+  # Trigger the workflow on pull request,
+  # but only for the main branch
+  pull_request:
+    branches:
+      - main
+
+env:
+  PORT: ${{ vars.PORT }}
+  BASE_URL: ${{ vars.BASE_URL }}
+  ALLOWED_ORIGINS: ${{ vars.ALLOWED_ORIGINS }}
+  API_NAME: ${{ vars.API_NAME }}
+  API_DESCRIPTION: ${{ vars.API_DESCRIPTION }}
+  API_VERSION: ${{ vars.API_VERSION }}
+  DOCUMENTATION_PATH: ${{ vars.DOCUMENTATION_PATH }}
+  DOCUMENTATION_USER: ${{ vars.DOCUMENTATION_USER }}
+  MAILS_FROM_NAME: ${{ vars.MAILS_FROM_NAME }}
+  MAILS_FROM_EMAIL: ${{ vars.MAILS_FROM_EMAIL }}
+  CONTACT_REQUEST_INBOX: ${{ vars.CONTACT_REQUEST_INBOX }}
+  DATABASE_NAME: ${{ vars.DATABASE_NAME }}
+  DOCUMENTATION_PASSWORD: ${{ secrets.DOCUMENTATION_PASSWORD }}
+  DATABASE_URI: ${{ secrets.DATABASE_URI }}
+  COOKIE_SECRET: ${{ secrets.COOKIE_SECRET }}
+  JWT_ACCESS_TOKEN_SECRET: ${{ secrets.JWT_ACCESS_TOKEN_SECRET }}
+  JWT_REFRESH_TOKEN_SECRET: ${{ secrets.JWT_REFRESH_TOKEN_SECRET }}
+  CAPTCHA_PRIVATE_KEY: ${{ secrets.CAPTCHA_PRIVATE_KEY }}
+  SENDGRID_KEY: ${{ secrets.SENDGRID_KEY }}
+
+jobs:
+  run-integration-steps:
+    name: Run integration checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      # Run mongo in action for testing
+      # - uses: MongoCamp/mongodb-github-action@1.0.0
+      #   with:
+      #     mongodb-version: 5.0.9
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18.18.0
+          cache: yarn
+      - run: yarn
+      - run: yarn lint
+      - run: yarn build
+      - run: yarn test
