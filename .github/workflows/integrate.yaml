@@ -37,28 +37,15 @@ jobs:
     timeout-minutes: 20
 
     steps:
-      - name: Check out Git repository
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 18.18.0
           cache: yarn
-
-      - name: Start MongoDB
-        uses: MongoCamp/mongodb-github-action@1.0.0
+      - uses: MongoCamp/mongodb-github-action@1.0.0
         with:
           mongodb-version: 5.0.9
-
-      - name: Install packages
-        run: yarn
-
-      - name: Run linters
-        run: yarn lint
-
-      - name: Run build
-        run: yarn build
-
-      - name: Run tests
-        run: yarn test
+      - run: yarn
+      - run: yarn lint
+      - run: yarn build
+      - run: yarn test
