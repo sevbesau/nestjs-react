@@ -5,9 +5,9 @@ import { Public } from '../auth/auth.guard';
 import { ContactService } from './contact.service';
 import { ContactRequestDto } from './dto/contact.create.dto';
 
-@Controller('contact')
-@ApiTags('contact')
 @Public()
+@ApiTags('contact')
+@Controller()
 export class ContactController {
   constructor(private readonly contactService: ContactService) {}
 

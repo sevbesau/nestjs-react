@@ -1,7 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
 import { ApiOperation } from '@nestjs/swagger';
 
-import { Public } from './api/auth/auth.guard';
+import { Public } from './api/routes/auth/auth.guard';
 import { AppService } from './app.service';
 
 @Controller()

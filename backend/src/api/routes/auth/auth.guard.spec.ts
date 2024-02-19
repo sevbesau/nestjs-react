@@ -6,7 +6,7 @@ import { Reflector } from '@nestjs/core';
 import { Request, Response } from 'express';
 import { anything, instance, mock, verify, when } from 'ts-mockito';
 
-import { UsersService } from '../users/users.service';
+import { UsersService } from '../routes/users/users.service';
 import {
   InsufficientPermissionsException,
   InvalidRefreshTokenException,

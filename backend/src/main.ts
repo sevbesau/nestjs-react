@@ -28,8 +28,6 @@ async function bootstrap() {
 
   app.use(cookieParser(configService.getOrThrow('COOKIE_SECRET')));
 
-  app.setGlobalPrefix(`api/v${configService.getOrThrow('API_VERSION')}`);
-
   const morganLogger = new Logger('Morgan');
   app.use(
     morgan('dev', {
@@ -71,7 +69,7 @@ async function bootstrap() {
 
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup(
-    configService.getOrThrow('DOCUMENTATION_PATH'),
+    `api/${configService.getOrThrow('DOCUMENTATION_PATH')}`,
     app,
     document,
   );

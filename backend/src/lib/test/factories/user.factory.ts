@@ -2,8 +2,8 @@ import { UserRole } from '@common/schemas';
 import { faker } from '@faker-js/faker';
 import { Factory } from 'fishery';
 
-import { CreateUserDto } from '@/api/users/dto/user.create.dto';
-import { User } from '@/api/users/users.schema';
+import { CreateUserDto } from '@/api/routes/users/dto/user.create.dto';
+import { User } from '@/api/routes/users/users.schema';
 
 import { baseDocFactory } from '.';
 import { addressFactory } from './address.factory';

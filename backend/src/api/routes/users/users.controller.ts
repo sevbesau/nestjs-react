@@ -12,12 +12,10 @@ import { SanitizedUserDto } from './dto/user.sanitized.dto';
 import { UpdateUserDto } from './dto/user.update.dto';
 import { UsersService } from './users.service';
 
-@Controller(UsersController.BasePath)
 @ApiBearerAuth()
-@ApiTags(UsersController.BasePath)
+@ApiTags('users')
+@Controller()
 export class UsersController {
-  static readonly BasePath = 'users';
-
   constructor(private readonly usersService: UsersService) {}
 
   @Patch()

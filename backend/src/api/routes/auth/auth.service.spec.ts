@@ -25,8 +25,8 @@ import {
   when,
 } from 'ts-mockito';
 
-import { User } from '../users/users.schema';
-import { UsersService } from '../users/users.service';
+import { User } from '../routes/users/users.schema';
+import { UsersService } from '../routes/users/users.service';
 import { Webshop } from '../webshops/webshops.schema';
 import { WebshopsService } from '../webshops/webshops.service';
 import {
