@@ -9,7 +9,6 @@ import { TokensService } from '@lib/tokens/tokens.service';
 import { Test, TestingModule } from '@nestjs/testing';
 
 import { UsersService } from '../users/users.service';
-import { WebshopsService } from '../webshops/webshops.service';
 import {
   DuplicateEmailException,
   ExpiredOtpException,
@@ -22,7 +21,6 @@ import { AuthService } from './auth.service';
 describe('AuthService', () => {
   let authService: AuthService;
   const usersService: Partial<UsersService> = {};
-  const webshopsService: Partial<WebshopsService> = {};
   const emailService: Partial<EmailService> = {};
   const captchaService: Partial<CaptchaService> = {};
   const encryptionService: Partial<EncryptionService> = {};
@@ -43,7 +41,6 @@ describe('AuthService', () => {
     })
       .useMocker((token) => {
         if (token === UsersService) return usersService;
-        if (token === WebshopsService) return webshopsService;
         if (token === EmailService) return emailService;
         if (token === CaptchaService) return captchaService;
         if (token === EncryptionService) return encryptionService;
@@ -423,32 +420,11 @@ describe('AuthService', () => {
       const user = { _id: faker.database.mongodbObjectId(), foo: 'bar' };
       const session = { sub: user._id };
       usersService.findById = jest.fn().mockResolvedValue(user);
-      webshopsService.findByUserId = jest.fn().mockRejectedValue(new Error());
 
       // @ts-ignore
       const result = await authService.getLoggedInUser(session);
 
-      expect(result).toEqual({
-        ...user,
-        webshop: undefined,
-      });
-      expect(webshopsService.findByUserId).toBeCalledWith(user._id);
-    });
-
-    it('should also include the webshop if the user has a webshop', async () => {
-      const user = { _id: faker.database.mongodbObjectId(), foo: 'bar' };
-      const session = { sub: user._id };
-      const webshop = 'webshop';
-      usersService.findById = jest.fn().mockResolvedValue(user);
-      webshopsService.findByUserId = jest.fn().mockResolvedValue(webshop);
-
-      // @ts-ignore
-      const result = await authService.getLoggedInUser(session);
-
-      expect(result).toEqual({
-        ...user,
-        webshop,
-      });
+      expect(result).toEqual(user);
     });
   });
 

@@ -9,7 +9,6 @@ import { Request, Response } from 'express';
 
 import { CaptchaService } from '../../../lib/captcha/captcha.service';
 import { UsersService } from '../users/users.service';
-import { SignInStrategy } from './auth.controller';
 import {
   DuplicateEmailException,
   ExpiredOtpException,
@@ -32,7 +31,7 @@ export class AuthService {
     private readonly tokensService: TokensService,
   ) {}
 
-  async signIn(strategy: SignInStrategy, { email }: SignInRequestDto) {
+  async signIn({ email }: SignInRequestDto) {
     const user = await this.usersService.findByEmail(email);
 
     const otp = await this.generateOtpAndSetOnUser(user._id);

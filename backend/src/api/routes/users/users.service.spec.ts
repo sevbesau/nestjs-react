@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { UserRole } from '@eacend/schemas';
+import { UserRole } from '@common/schemas';
 import { faker } from '@faker-js/faker';
 import { Test, TestingModule } from '@nestjs/testing';
 
@@ -282,56 +282,6 @@ describe('UsersService', () => {
 
       expect(result).toEqual(returnValue);
       expect(usersRepository.incrementTokenVersionByIdOrFail).toBeCalledWith(
-        userId,
-      );
-    });
-  });
-
-  describe('setDeleteByInOneMonthById', () => {
-    it('should be defined', () => {
-      expect(usersService.setDeleteByInOneMonthById).toBeDefined();
-    });
-
-    it('should call setDeleteByInOneMonthByIdOrFail on the repository and return the promise', async () => {
-      const userId = faker.database.mongodbObjectId();
-      const returnValue = {
-        foo: 'bar',
-        _id: faker.database.mongodbObjectId(),
-        deleteBy: new Date(),
-      };
-      usersRepository.setDeleteByInOneMonthByIdOrFail = jest
-        .fn()
-        .mockResolvedValue(returnValue);
-
-      const result = await usersService.setDeleteByInOneMonthById(userId);
-
-      expect(result).toEqual(returnValue);
-      expect(usersRepository.setDeleteByInOneMonthByIdOrFail).toBeCalledWith(
-        userId,
-      );
-    });
-  });
-
-  describe('setDeleteRequestedById', () => {
-    it('should be defined', () => {
-      expect(usersService.setDeleteRequestedById).toBeDefined();
-    });
-
-    it('should call setDeleteRequestedByIdOrFail on the repository and return the promise', async () => {
-      const userId = faker.database.mongodbObjectId();
-      const returnValue = {
-        foo: 'bar',
-        _id: faker.database.mongodbObjectId(),
-        deleteRequested: new Date(),
-      };
-      usersRepository.setDeleteRequestedByIdOrFail = jest
-        .fn()
-        .mockResolvedValue(returnValue);
-
-      const result = await usersService.setDeleteRequestedById(userId);
-
-      expect(result).toEqual(returnValue);
-      expect(usersRepository.setDeleteRequestedByIdOrFail).toBeCalledWith(
         userId,
       );
     });

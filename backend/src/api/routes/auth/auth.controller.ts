@@ -5,16 +5,7 @@ import {
   setCookieHeader,
 } from '@lib/common/openapi';
 import { GetSession, Session } from '@lib/common/session';
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  Headers,
-  Post,
-  Req,
-  Res,
-} from '@nestjs/common';
+import { Body, Controller, Delete, Get, Post, Req, Res } from '@nestjs/common';
 import {
   ApiBearerAuth,
   ApiCookieAuth,
@@ -32,11 +23,6 @@ import { SignedInUserResponseDto } from './dto/signedInUser.dto';
 import { SignInRequestDto, SignInResponseDto } from './dto/signin.dto';
 import { SignUpDto } from './dto/signup.dto';
 
-export enum SignInStrategy {
-  OTP = 'OTP',
-  PASSWORD = 'PASSWORD',
-}
-
 @ApiTags('auth')
 @Controller()
 export class AuthController {
@@ -49,11 +35,8 @@ export class AuthController {
   @Public()
   @ZodSerializerDto(SignInResponseDto)
   @ApiOkResponse({ type: SignInResponseDto })
-  signIn(
-    @Headers('method') strategy: SignInStrategy,
-    @Body() signInDto: SignInRequestDto,
-  ) {
-    return this.authService.signIn(strategy, signInDto);
+  signIn(@Body() signInDto: SignInRequestDto) {
+    return this.authService.signIn(signInDto);
   }
 
   @Post('signup')

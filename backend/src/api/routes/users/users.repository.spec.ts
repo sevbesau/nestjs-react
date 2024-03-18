@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { TOtp, UserRole } from '@eacend/schemas';
+import { TOtp, UserRole } from '@common/schemas';
 import { faker } from '@faker-js/faker';
 import { model } from 'mongoose';
 
@@ -178,52 +178,6 @@ describe('UsersRepository', () => {
       expect(result).toEqual(resolveValue);
       expect(usersRepository['updateOneByIdOrFail']).toBeCalledWith(userId, {
         $set: update,
-      });
-    });
-  });
-
-  describe('setDeleteRequestedByIdOrFail', () => {
-    it('Should be defined', () => {
-      expect(usersRepository.setDeleteRequestedByIdOrFail).toBeDefined();
-    });
-
-    it('should call the baseRepository updateOneByIdOrFail and return the promise', async () => {
-      const userId = faker.database.mongodbObjectId();
-      const resolveValue = { foo: 'baz' };
-      usersRepository['updateOneByIdOrFail'] = jest
-        .fn()
-        .mockResolvedValue(resolveValue);
-
-      const result = await usersRepository.setDeleteRequestedByIdOrFail(userId);
-
-      expect(result).toEqual(resolveValue);
-      expect(usersRepository['updateOneByIdOrFail']).toBeCalledWith(userId, {
-        $set: { deleteRequested: new Date() },
-      });
-    });
-  });
-
-  describe('setDeleteByInOneMonthByIdOrFail', () => {
-    it('Should be defined', () => {
-      expect(usersRepository.setDeleteByInOneMonthByIdOrFail).toBeDefined();
-    });
-
-    it('should call the baseRepository updateOneByIdOrFail and return the promise', async () => {
-      const userId = faker.database.mongodbObjectId();
-      const now = new Date();
-      const inOneMonth = new Date(now.setMonth(now.getMonth() + 1));
-      const resolveValue = { foo: 'baz', deleteBy: inOneMonth };
-      usersRepository['updateOneByIdOrFail'] = jest
-        .fn()
-        .mockResolvedValue(resolveValue);
-
-      const result = await usersRepository.setDeleteByInOneMonthByIdOrFail(
-        userId,
-      );
-
-      expect(result).toEqual(resolveValue);
-      expect(usersRepository['updateOneByIdOrFail']).toBeCalledWith(userId, {
-        $set: { deleteBy: inOneMonth },
       });
     });
   });
