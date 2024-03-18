@@ -1,3 +1,5 @@
+import { createMockConfigService } from '@lib/test/config';
+import { ConfigService } from '@nestjs/config';
 import { Test, TestingModule } from '@nestjs/testing';
 
 import { EncryptionService } from './encryption.service';
@@ -5,10 +7,17 @@ import { EncryptionService } from './encryption.service';
 describe('EncryptionService', () => {
   let encryptionService: EncryptionService;
 
+  const PRIVATE_KEY = 'private key';
+  const configService = createMockConfigService({ PRIVATE_KEY });
+
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [EncryptionService],
-    }).compile();
+    })
+      .useMocker((token) => {
+        if (token === ConfigService) return configService;
+      })
+      .compile();
 
     encryptionService = module.get<EncryptionService>(EncryptionService);
   });
