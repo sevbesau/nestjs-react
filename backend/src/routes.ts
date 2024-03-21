@@ -4,7 +4,6 @@ import { ApiModule } from './api/api.module';
 import { AuthModule } from './api/routes/auth/auth.module';
 import { ContactModule } from './api/routes/contact/contact.module';
 import { UsersModule } from './api/routes/users/users.module';
-import { ClientModule } from './client/client.module';
 
 export const routes: Routes = [
   {
@@ -24,9 +23,5 @@ export const routes: Routes = [
         module: ContactModule,
       },
     ],
-  },
-  {
-    path: '',
-    module: ClientModule,
   },
 ];

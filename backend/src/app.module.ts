@@ -6,7 +6,6 @@ import { ZodSerializerInterceptor, ZodValidationPipe } from 'nestjs-zod';
 import { ApiModule } from './api/api.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ClientModule } from './client/client.module';
 import { CaptchaModule } from './lib/captcha/captcha.module';
 import { MyConfigModule } from './lib/config/config.module';
 import { DataBaseModule } from './lib/database/database.module';
@@ -24,7 +23,6 @@ import { routes } from './routes';
 
     // routes
     ApiModule,
-    ClientModule,
     RouterModule.register(routes),
   ],
   controllers: [AppController],
